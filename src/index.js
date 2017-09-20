@@ -4,10 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
+import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker';
-
-const initialState = { photos: []};
-const reducer = (state = initialState, action) => state;
 
 const store = createStore(
   reducer,
