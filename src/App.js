@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Results from './components/Results'
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -10,7 +12,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Unsplash API Image Search</h2>
         </div>
-        <input type="search" className="hiImInput" placeholder="Search for Images..." />
+
+        <form>
+          <input type="search" className="hiImInput" placeholder="Search for Images..." />
+          <button>Refresh</button>
+        </form>
+        <div className="search_results">
+          <Results />
+        </div>
       </div>
     );
   }
