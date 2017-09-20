@@ -29,8 +29,8 @@ class App extends Component {
 
     handleSubmit(event) {
       event.preventDefault()
-      const whatWasType = this.text.value
-      
+      const whatWasTyped = this.text.value
+      this.props.searchPhotosAsProp(whatWasTyped)
     }
 
   render() {
@@ -44,7 +44,7 @@ class App extends Component {
         <p className="App-intro">
           There are {this.props.photos.length} photos.
         </p>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="search" className="hiImInput" placeholder="Search for images..." ref={element => this.text=element}/>
           <button>Refresh</button>
         </form>
@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch) => {
     getPhotosAsProp: (photosTheParameter) =>
     dispatch(getPhotos(photosTheParameter)),
     loadingFinishedAsProp: () => dispatch(loadingFinished()),
-    searchPhotos: (searchTerm) => dispatch(searchPhotos(searchTerm))
+    searchPhotosAsProp: (searchTerm) => dispatch(searchPhotos(searchTerm))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)

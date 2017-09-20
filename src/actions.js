@@ -24,7 +24,7 @@ export const searchPhotos = (query) => {
     .then((response) => response.json())
     .then(json => {
       console.log(json)
-      dispatch(getPhotos(json))
+      dispatch(getPhotos(json.results))
       dispatch(loadingFinished())
       }
     )}
